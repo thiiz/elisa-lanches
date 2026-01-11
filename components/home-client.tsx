@@ -14,11 +14,10 @@ import { Product } from "@/types";
 import { useState } from "react";
 
 interface HomeClientProps {
-  products: Product[];
-  combos: Product[];
+  productsByCategory: Record<string, Product[]>;
 }
 
-export function HomeClient({ products, combos }: HomeClientProps) {
+export function HomeClient({ productsByCategory }: HomeClientProps) {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
@@ -82,8 +81,7 @@ export function HomeClient({ products, combos }: HomeClientProps) {
       <Hero />
 
       <ProductSection
-        products={products}
-        combos={combos}
+        productsByCategory={productsByCategory}
         onAdd={handleAddToCart}
       />
 

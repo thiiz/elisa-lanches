@@ -1,4 +1,4 @@
-export type Category = "combos especiais" | "nossos salgados";
+export type Category = string;
 
 export interface Product {
   id: string;

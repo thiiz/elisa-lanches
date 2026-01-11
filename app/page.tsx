@@ -3,8 +3,16 @@ import { getAllProducts } from "@/lib/hygraph";
 
 export default async function Home() {
   const allProducts = await getAllProducts();
-  const products = allProducts.filter((p) => p.category === "nossos salgados");
-  const combos = allProducts.filter((p) => p.category === "combos especiais");
+  
+  // Agrupa os produtos por categoria dinamicamente
+  const productsByCategory = allProducts.reduce((acc, product) => {
+    const category = product.category;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(product);
+    return acc;
+  }, {} as Record<string, typeof allProducts>);
 
-  return <HomeClient products={products} combos={combos} />;
+  return <HomeClient productsByCategory={productsByCategory} />;
 }
