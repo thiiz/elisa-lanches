@@ -57,8 +57,10 @@ export const ProductSection = ({
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute left-2 top-2 rounded-full bg-yellow-400 px-3 py-1 text-xs font-bold text-slate-900 shadow-md">
-                  OFERTA
+                <div className="absolute left-2 top-2 flex flex-col gap-1">
+                  <div className="rounded-full bg-yellow-400 px-3 py-1 text-[10px] font-bold text-slate-900 shadow-md uppercase">
+                    OFERTA
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col justify-center p-4 md:w-2/3">

@@ -1,20 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShoppingCart } from "lucide-react";
 
-interface FloatButtonsProps {
-  onCartClick: () => void;
-  totalQuantity: number;
-}
 
-export const FloatButtons = ({
-  onCartClick,
-  totalQuantity,
-}: FloatButtonsProps) => {
+export const FloatButtons = () => {
   return (
     <div className="fixed bottom-4 right-2 z-30 flex flex-col gap-3">
-   
       <motion.a
         href="https://wa.me/5551990070708"
         target="_blank"

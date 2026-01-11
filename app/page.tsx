@@ -8,22 +8,22 @@ import { Header } from "../components/layout/Header";
 import { AboutSection } from "../components/sections/AboutSection";
 import { Hero } from "../components/sections/Hero";
 import { ProductSection } from "../components/sections/ProductSection";
-import { AdminPanel } from "../components/ui/AdminPanel";
+
 import { FloatButtons } from "../components/ui/FloatButtons";
 import { Toast } from "../components/ui/Toast";
 import { useCart } from "../hooks/useCart";
-import { db } from "../lib/db";
-import { Order, Product } from "../types";
+import { Product } from "../types";
 
 export default function Home() {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
+
   const [products, setProducts] = useState<Product[]>([]);
   const [combos, setCombos] = useState<Product[]>([]);
-  const [dbOrders, setDbOrders] = useState<Order[]>([]);
+
   const [toastMsg, setToastMsg] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const {
     cart,
@@ -36,9 +36,28 @@ export default function Home() {
   } = useCart();
 
   useEffect(() => {
-    setProducts(db.getProducts());
-    setCombos(db.getCombos());
-    setDbOrders(db.getAllOrders());
+    async function loadProducts() {
+      try {
+        const response = await fetch("/api/products");
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.error || "Erro ao carregar produtos");
+        }
+        
+        const allProducts: Product[] = data.products;
+        setProducts(allProducts.filter(p => p.category === "nossos salgados"));
+        setCombos(allProducts.filter(p => p.category === "combos especiais"));
+      } catch (error) {
+        console.error("Erro ao carregar produtos:", error);
+        setToastMsg("Erro ao carregar produtos");
+        setTimeout(() => setToastMsg(null), 3000);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadProducts();
   }, []);
 
 
@@ -63,9 +82,6 @@ export default function Home() {
       }),
       totalValue: total,
     };
-
-    db.saveOrder(orderData);
-    setDbOrders(db.getAllOrders());
 
     const itemsList = cart
       .map((item) => `▪️ ${item.quantity}x ${item.name}`)
@@ -94,20 +110,22 @@ export default function Home() {
 
       <Hero />
 
-      <ProductSection
-        products={products}
-        combos={combos}
-        onAdd={handleAddToCart}
-      />
+      {isLoading ? (
+        <div className="flex items-center justify-center py-20">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-orange-500 border-t-transparent"></div>
+        </div>
+      ) : (
+        <ProductSection
+          products={products}
+          combos={combos}
+          onAdd={handleAddToCart}
+        />
+      )}
 
       <AboutSection />
 
-      <Footer onAdminClick={() => setIsAdminOpen(true)} />
-
-      <FloatButtons
-        onCartClick={() => setIsCartOpen(true)}
-        totalQuantity={totalQuantity}
-      />
+      <Footer />
+      <FloatButtons />
 
       <CartModal
         isOpen={isCartOpen}
@@ -127,13 +145,10 @@ export default function Home() {
         onSubmit={handleWhatsAppCheckout}
       />
 
-      <AdminPanel
-        isOpen={isAdminOpen}
-        onClose={() => setIsAdminOpen(false)}
-        orders={dbOrders}
-      />
+
 
       <Toast message={toastMsg} show={!!toastMsg} />
     </div>
   );
 }
+

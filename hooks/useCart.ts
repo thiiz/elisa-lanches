@@ -26,12 +26,12 @@ export const useCart = () => {
             ? { ...item, quantity: item.quantity + 1 }
             : item,
         );
-      return [...prev, { ...product, quantity: 1, cartId: Date.now() }];
+      return [...prev, { ...product, quantity: 1, cartId: crypto.randomUUID() }];
     });
     setCartShake(Date.now());
   };
 
-  const updateQuantity = (cartId: number, delta: number) => {
+  const updateQuantity = (cartId: string, delta: number) => {
     setCart((prev) =>
       prev
         .map((item) => {

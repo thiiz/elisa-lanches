@@ -9,7 +9,7 @@ interface CartModalProps {
   onClose: () => void;
   cart: CartItem[];
   total: number;
-  onUpdateQuantity: (cartId: number, delta: number) => void;
+  onUpdateQuantity: (cartId: string, delta: number) => void;
   onCheckout: () => void;
 }
 
