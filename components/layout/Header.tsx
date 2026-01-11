@@ -32,7 +32,7 @@ export const Header = ({
     <header className="fixed top-0 z-40 w-full border-b border-stone-200 bg-white/90 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/90">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <div className="overflow-hidden relative w-14 h-14">
+          <div className="overflow-hidden relative w-12 h-12">
             <Image src="/logo.png" alt="Logo" width={0} height={0} sizes="100vw" className="w-full object-cover absolute" />
           </div>
           <span className="text-xl font-extrabold tracking-tight text-slate-800 dark:text-white">
