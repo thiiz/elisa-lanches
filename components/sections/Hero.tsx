@@ -146,14 +146,14 @@ export const Hero = () => {
 
         <motion.div 
           variants={itemUpVariants}
-          className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-6 md:grid-cols-2"
+          className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2"
         >
           <motion.div 
             whileHover={{ y: -5, scale: 1.02 }}
             className="flex items-center gap-4 rounded-2xl border border-blue-100 bg-white/80 p-5 shadow-lg shadow-blue-100/20 backdrop-blur-md transition-all dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-none"
           >
-            <div className="flex-shrink-0 rounded-xl bg-blue-100 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-              <Smartphone size={24} />
+            <div className="flex-shrink-0 rounded-xl bg-blue-100 p-2.5 md:p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+              <Smartphone className="w-6 h-6 md:w-7 md:h-7" />
             </div>
             <div className="text-left">
               <span className="block text-base font-bold text-slate-900 dark:text-white">
@@ -169,8 +169,8 @@ export const Hero = () => {
             whileHover={{ y: -5, scale: 1.02 }}
             className="flex items-center gap-4 rounded-2xl border border-green-100 bg-white/80 p-5 shadow-lg shadow-green-100/20 backdrop-blur-md transition-all dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-none"
           >
-            <div className="flex-shrink-0 rounded-xl bg-green-100 p-3 text-green-600 dark:bg-green-900/30 dark:text-green-400">
-              <Clock size={24} />
+            <div className="flex-shrink-0 rounded-xl bg-green-100 p-2.5 md:p-3 text-green-600 dark:bg-green-900/30 dark:text-green-400">
+              <Clock className="w-6 h-6 md:w-7 md:h-7" />
             </div>
             <div className="text-left">
               <span className="block text-base font-bold text-slate-900 dark:text-white">
