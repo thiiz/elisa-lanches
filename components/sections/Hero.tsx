@@ -3,24 +3,37 @@
 import { motion } from "framer-motion";
 import { Clock, Smartphone } from "lucide-react";
 
+const FLOATING_ICONS = [
+  { icon: "🥟", left: "5%", initialY: "70vh", duration: 25, delay: -5 },
+  { icon: "🥡", left: "25%", initialY: "90vh", duration: 18, delay: -2 },
+  { icon: "🌮", left: "45%", initialY: "75vh", duration: 22, delay: -10 },
+  { icon: "🍟", left: "65%", initialY: "70vh", duration: 16, delay: -8 },
+  { icon: "🍔", left: "85%", initialY: "85vh", duration: 20, delay: -4 },
+  { icon: "🥐", left: "92%", initialY: "100vh", duration: 19, delay: -1 },
+];
+
 export const Hero = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 to-red-50 px-4 pb-16 pt-24 dark:from-slate-900 dark:to-slate-800">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {FLOATING_ICONS.map((item, i) => (
           <motion.div
             key={i}
             className="absolute text-4xl opacity-10 dark:opacity-5"
-            initial={{ y: "100vh", rotate: 0, left: `${Math.random() * 100}%` }}
+            initial={{
+              y: item.initialY,
+              rotate: 0,
+              left: item.left,
+            }}
             animate={{ y: "-20vh", rotate: 360 }}
             transition={{
-              duration: 15 + Math.random() * 10,
+              duration: item.duration,
               repeat: Infinity,
               ease: "linear",
-              delay: Math.random() * 5,
+              delay: item.delay,
             }}
           >
-            {["🥟", "🥡", "🌮", "🍟", "🍔", "🥐"][i]}
+            {item.icon}
           </motion.div>
         ))}
       </div>
