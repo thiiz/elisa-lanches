@@ -33,7 +33,7 @@ async function fetchFromHygraph<T>(query: string): Promise<T> {
     method: "POST",
     headers,
     body: JSON.stringify({ query }),
-    next: { revalidate: 60 }, // Revalidate every 60 seconds
+    next: { tags: ["products"] },
   });
   if (!response.ok) {
     const errorText = await response.text();
