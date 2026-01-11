@@ -1,6 +1,6 @@
 import { Product } from "../types";
 
-const HYGRAPH_ENDPOINT = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT!;
+const HYGRAPH_ENDPOINT = process.env.HYGRAPH_ENDPOINT!;
 const HYGRAPH_TOKEN = process.env.HYGRAPH_TOKEN;
 
 interface HygraphAsset {
