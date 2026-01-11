@@ -153,7 +153,7 @@ export const Hero = () => {
             className="flex items-center gap-4 rounded-2xl border border-blue-100 bg-white/80 p-5 shadow-lg shadow-blue-100/20 backdrop-blur-md transition-all dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-none"
           >
             <div className="flex-shrink-0 rounded-xl bg-blue-100 p-2.5 md:p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-              <Smartphone className="w-6 h-6 md:w-7 md:h-7" />
+              <Smartphone className="w-5 h-5 md:w-6 md:h-6" />
             </div>
             <div className="text-left">
               <span className="block text-base font-bold text-slate-900 dark:text-white">
@@ -170,14 +170,14 @@ export const Hero = () => {
             className="flex items-center gap-4 rounded-2xl border border-green-100 bg-white/80 p-5 shadow-lg shadow-green-100/20 backdrop-blur-md transition-all dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-none"
           >
             <div className="flex-shrink-0 rounded-xl bg-green-100 p-2.5 md:p-3 text-green-600 dark:bg-green-900/30 dark:text-green-400">
-              <Clock className="w-6 h-6 md:w-7 md:h-7" />
+              <Clock className="w-5 h-5 md:w-6 md:h-6" />
             </div>
             <div className="text-left">
               <span className="block text-base font-bold text-slate-900 dark:text-white">
                 Pronto a Entrega
               </span>
               <span className="text-sm text-slate-500 dark:text-slate-400">
-                Seu pedido pronto em 15 a 20 min.
+               Pedido pronto em 15 a 20 min.
               </span>
             </div>
           </motion.div>
