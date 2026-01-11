@@ -38,13 +38,13 @@ export const CartModal = ({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="relative flex h-full max-h-[90vh] w-[95%] max-w-md flex-col rounded-2xl bg-white shadow-2xl dark:bg-slate-800 md:h-auto"
+            className="relative flex h-auto max-h-[85vh] w-[95%] max-w-md flex-col rounded-2xl bg-white shadow-2xl dark:bg-slate-800 md:h-auto"
           >
             {/* Header */}
             <div className="z-10 flex shrink-0 items-center justify-between rounded-t-2xl bg-orange-600 p-4 text-white md:p-5">
               <div>
-                <h2 className="text-xl font-bold">Seu Pedido</h2>
-                <p className="text-sm text-orange-100">Elisa Salgados</p>
+                <h2 className="text-lg font-bold md:text-xl">Seu Pedido</h2>
+                <p className="text-xs text-orange-100 md:text-sm">Elisa Salgados</p>
               </div>
               <button
                 onClick={onClose}
@@ -55,7 +55,7 @@ export const CartModal = ({
             </div>
 
             {/* List of Items */}
-            <div className="flex-1 overflow-y-auto p-5 space-y-4">
+            <div className="flex-1 overflow-y-auto p-3 space-y-3 md:p-5 md:space-y-4">
               {cart.length === 0 ? (
                 <div className="py-10 text-center text-slate-400">
                   <ShoppingBag size={48} className="mx-auto mb-3 opacity-50" />
@@ -63,19 +63,19 @@ export const CartModal = ({
                 </div>
               ) : (
                 cart.map((item) => (
-                  <motion.div
-                    layout
-                    key={item.cartId}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="flex items-center gap-3 rounded-xl bg-stone-50 p-3 dark:bg-slate-700/50"
-                  >
-                    <img
-                      src={item.img}
-                      alt={item.name}
-                      className="h-14 w-14 rounded-lg object-cover md:h-16 md:w-16"
-                    />
-                    <div className="flex-1">
+                    <motion.div
+                      layout
+                      key={item.cartId}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="flex items-center gap-2 rounded-xl bg-stone-50 p-2 dark:bg-slate-700/50 md:gap-3 md:p-3"
+                    >
+                      <img
+                        src={item.img}
+                        alt={item.name}
+                        className="h-12 w-12 shrink-0 rounded-lg object-cover md:h-16 md:w-16"
+                      />
+                    <div className="flex-1 min-w-0">
                       <h4 className="line-clamp-2 text-sm font-semibold dark:text-white">
                         {item.name}
                       </h4>
@@ -86,23 +86,23 @@ export const CartModal = ({
                         })}
                       </p>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex shrink-0 items-center gap-2">
                       <motion.button
                         whileTap={{ scale: 0.9 }}
                         onClick={() => onUpdateQuantity(item.cartId, -1)}
-                        className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-600 md:h-8 md:w-8"
+                        className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-600 md:h-9 md:w-9"
                       >
-                        <Minus size={16} />
+                        <Minus size={14} />
                       </motion.button>
-                      <span className="w-4 text-center font-bold dark:text-white">
+                      <span className="w-4 text-center text-sm font-bold dark:text-white">
                         {item.quantity}
                       </span>
                       <motion.button
                         whileTap={{ scale: 0.9 }}
                         onClick={() => onUpdateQuantity(item.cartId, 1)}
-                        className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-500 text-white md:h-8 md:w-8"
+                        className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white md:h-9 md:w-9"
                       >
-                        <Plus size={16} />
+                        <Plus size={14} />
                       </motion.button>
                     </div>
                   </motion.div>
@@ -114,7 +114,7 @@ export const CartModal = ({
             <div className="z-10 shrink-0 rounded-b-2xl border-t border-stone-100 bg-white p-4 dark:border-slate-700 dark:bg-slate-800 md:p-5">
               <div className="mb-4 flex items-center justify-between">
                 <span className="text-slate-500 dark:text-slate-400">Total</span>
-                <span className="text-3xl font-extrabold text-slate-800 dark:text-white">
+                <span className="text-2xl font-extrabold text-slate-800 dark:text-white md:text-3xl">
                   {total.toLocaleString("pt-BR", {
                     style: "currency",
                     currency: "BRL",
@@ -126,10 +126,10 @@ export const CartModal = ({
                   whileTap={{ scale: 0.96 }}
                   whileHover={{ scale: 1.01 }}
                   onClick={onCheckout}
-                  className="flex min-h-[60px] w-full items-center justify-center gap-3 rounded-xl bg-green-600 text-lg font-bold text-white shadow-xl transition-all hover:bg-green-700 active:bg-green-800"
+                  className="flex w-full py-2.5 md:py-2 items-center justify-center gap-3 rounded-xl bg-green-600 text-base font-bold text-white shadow-xl transition-all hover:bg-green-700 active:bg-green-800 md:min-h-[60px]"
                 >
-                  <MessageCircle size={24} />
-                  <span>Finalizar no WhatsApp</span>
+                  <MessageCircle className="h-6 w-6 md:h-8 md:w-8" />
+                  <span className="text-sm md:text-base">Finalizar no WhatsApp</span>
                 </motion.button>
               )}
             </div>

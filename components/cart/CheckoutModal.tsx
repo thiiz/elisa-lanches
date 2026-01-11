@@ -35,10 +35,10 @@ export const CheckoutModal = ({
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="relative w-[95%] max-w-lg rounded-2xl bg-white p-5 shadow-2xl dark:bg-slate-800 md:w-full md:p-6"
+        className="relative w-[95%] max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl dark:bg-slate-800 md:w-full md:p-6"
       >
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-slate-800 dark:text-white">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-white md:text-xl">
             Finalizar Pedido
           </h2>
           <button
@@ -62,7 +62,7 @@ export const CheckoutModal = ({
             <input
               required
               type="text"
-              className="w-full h-12 rounded-lg border border-stone-300 bg-stone-50 px-4 text-slate-800 outline-none focus:ring-2 focus:ring-orange-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+              className="w-full h-12 rounded-lg border border-stone-300 bg-stone-50 px-4 text-base text-slate-800 outline-none focus:ring-2 focus:ring-orange-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
               placeholder="Ex: Maria Silva"
               value={formData.name}
               onChange={(e) =>
@@ -77,7 +77,7 @@ export const CheckoutModal = ({
             <input
               required
               type="text"
-              className="w-full h-12 rounded-lg border border-stone-300 bg-stone-50 px-4 text-slate-800 outline-none focus:ring-2 focus:ring-orange-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+              className="w-full h-12 rounded-lg border border-stone-300 bg-stone-50 px-4 text-base text-slate-800 outline-none focus:ring-2 focus:ring-orange-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
               placeholder="Rua, Bairro, Número"
               value={formData.address}
               onChange={(e) =>
@@ -90,7 +90,7 @@ export const CheckoutModal = ({
               Pagamento
             </label>
             <select
-              className="w-full h-12 rounded-lg border border-stone-300 bg-stone-50 px-4 text-slate-800 outline-none focus:ring-2 focus:ring-orange-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+              className="w-full h-12 rounded-lg border border-stone-300 bg-stone-50 px-4 text-base text-slate-800 outline-none focus:ring-2 focus:ring-orange-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
               value={formData.payment}
               onChange={(e) =>
                 setFormData({ ...formData, payment: e.target.value })
@@ -105,13 +105,13 @@ export const CheckoutModal = ({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-lg border border-stone-300 py-3 font-semibold text-slate-600 transition hover:bg-stone-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
+              className="flex-1 rounded-lg border border-stone-300 py-3 text-sm font-semibold text-slate-600 transition hover:bg-stone-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700 md:text-base"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-green-600 py-3 font-bold text-white shadow-md transition hover:bg-green-700"
+              className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-green-600 py-3 text-sm font-bold text-white shadow-md transition hover:bg-green-700 md:text-base"
             >
               Enviar Pedido <Send size={18} />
             </button>
