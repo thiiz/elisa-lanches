@@ -31,7 +31,12 @@ export const ProductSection = ({
 
         return (
           <section key={category}>
-            <div className="mb-6 flex items-center gap-2">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-6 flex items-center gap-2"
+            >
               <span 
                 className={`h-8 w-2 rounded-full ${
                   isCombo ? "bg-yellow-500" : "bg-orange-500"
@@ -40,7 +45,7 @@ export const ProductSection = ({
               <h2 className="text-2xl font-bold text-slate-800 dark:text-white capitalize">
                 {category}
               </h2>
-            </div>
+            </motion.div>
 
             {isCombo ? (
               <div className="flex flex-wrap justify-center gap-6">
