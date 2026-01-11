@@ -35,7 +35,7 @@ export const CheckoutModal = ({
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl dark:bg-slate-800"
+        className="relative w-[95%] max-w-lg rounded-2xl bg-white p-5 shadow-2xl dark:bg-slate-800 md:w-full md:p-6"
       >
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xl font-bold text-slate-800 dark:text-white">

@@ -14,7 +14,7 @@ const FLOATING_ICONS = [
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 to-red-50 px-4 pb-16 pt-24 dark:from-slate-900 dark:to-slate-800">
+    <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 to-red-50 px-4 pb-12 pt-20 dark:from-slate-900 dark:to-slate-800 md:pb-16 md:pt-24">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {FLOATING_ICONS.map((item, i) => (
           <motion.div
@@ -43,7 +43,7 @@ export const Hero = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 200 }}
         >
-          <h1 className="mb-4 text-4xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-6xl">
+          <h1 className="mb-4 text-3xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-6xl">
             O Sabor que você <br />
             <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               Ama com Paixão!

@@ -10,14 +10,14 @@ export const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center gap-12 md:flex-row"
+          className="flex flex-col items-center gap-8 md:flex-row md:gap-12"
         >
           <div className="relative w-full md:w-1/2">
             <div className="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-yellow-500/20 blur-2xl"></div>
             <img
               src="https://res.cloudinary.com/dk7i8ud3p/image/upload/v1768106791/Gemini_Generated_Image_q0mi3hq0mi3hq0mi_wothl8.png"
               alt="Cozinha da Elisa"
-              className="relative z-10 h-[300px] w-full rounded-2xl object-cover shadow-2xl md:h-[350px]"
+              className="relative z-10 h-64 w-full rounded-2xl object-cover shadow-2xl md:h-[350px]"
             />
           </div>
           <div className="w-full text-center md:w-1/2 md:text-left">

@@ -52,15 +52,16 @@ export const ProductSection = ({
                     viewport={{ once: true }}
                     className="relative flex w-full min-w-[300px] flex-1 flex-col overflow-hidden rounded-2xl border border-yellow-500/30 bg-white shadow-xl dark:bg-slate-800 md:flex-row lg:max-w-[calc(33.333%-1rem)]"
                   >
-                    <div className="group relative h-48 overflow-hidden md:h-auto lg:w-1/1 md:w-1/2">
+                    <div className="group relative h-72 w-full overflow-hidden md:h-auto lg:w-full md:w-1/2">
                       <Image
                         src={combo.img}
                         alt={combo.name}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        priority={combo.id === products[0].id}
                       />
-                      <div className="absolute left-2 top-2 flex flex-col gap-1">
+                      <div className="absolute left-3 top-3">
                         <div className="rounded-full bg-yellow-400 px-3 py-1 text-[10px] font-bold text-slate-900 shadow-md uppercase">
                           OFERTA
                         </div>
@@ -94,7 +95,7 @@ export const ProductSection = ({
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
                 {products.map((product) => (
                   <ProductCard key={product.id} item={product} onAdd={onAdd} />
                 ))}
